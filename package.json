@@ -1,0 +1,38 @@
+{
+  "name": "aicte-complaint-monitoring-system",
+  "version": "1.0.0",
+  "description": "Integrated Dashboard for Monitoring and Tracking Institution-Related Complaint Cases Across AICTE Bureaus/Cells (SIH26264)",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -n \"SERVER,CLIENT\" -c \"blue,green\" \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "start": "npm --prefix server start",
+    "build": "npm --prefix client run build",
+    "seed": "npm --prefix server run seed",
+    "test": "npm --prefix server test && npm --prefix client test",
+    "test:server": "npm --prefix server test",
+    "test:client": "npm --prefix client test",
+    "install:all": "npm install && npm --prefix server install && npm --prefix client install",
+    "setup": "npm run install:all",
+    "db": "node scripts/start-local-db.js",
+    "dev:all": "concurrently -n \"DB,SERVER,CLIENT\" -c \"yellow,blue,green\" \"npm run db\" \"npm run dev:server\" \"npm run dev:client\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "keywords": [
+    "sih",
+    "aicte",
+    "complaint-management",
+    "dashboard",
+    "grievance-redressal"
+  ],
+  "author": "AICTE SIH Team",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^18.0.9",
+    "mongoose": "^9.11.4"
+  }
+}
